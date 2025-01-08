@@ -15,7 +15,20 @@
 
 // TODO: chunkArray 함수를 작성하세요.
 function chunkArray(arr, size) {
-  // TODO
+	// TODO
+  if(arr.length === 0 ) return [];
+
+  const newArr = arr.flatMap(el => el)
+  .map((el,idx) => (idx + 1) % size === 0 ? el +  "_" : el)
+  .join("")
+  .split("_")
+  .filter(el => el !== "")
+  .map(el => [...el].map(el => Number(el)) );
+
+  // console.log(newArr);
+
+  // reduce로 string 변환 후 size 만큼 shift?? 넘 비효율적인데?
+  return newArr;
 }
 
 // export를 수정하지 마세요.
