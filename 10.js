@@ -11,6 +11,7 @@
  *   { name: 'Bob', group: 'B' },
  *   { name: 'Charlie', group: 'A' }
  * ];
+ *
  * groupBy(data, 'group') =>
  * {
  *   A: [
@@ -30,17 +31,14 @@
 // TODO: groupBy 함수를 작성하세요.
 
 function groupBy(arr, key) {
-  // 여기에 코드를 작성하세요.
-  // key 로 arr 객체의 값들 모아오기
-  return arr.reduce((acc, obj) => {
-    const keyValue = obj[key];
-    if (!acc[keyValue]){// 없으면? 새로 배열 추가
-      acc[keyValue] = [obj];
-    }else{
-      acc[keyValue].push(obj);
-    }
-    return acc;
-  },{});
+	// 여기에 코드를 작성하세요.
+	// key 로 arr 객체의 값들 모아오기
+	return arr.reduce((acc, obj) => {
+		const keyValue = obj[key];
+		if (!acc[keyValue]) acc[keyValue] = [obj];
+		else acc[keyValue].push(obj);
+		return acc;
+	}, {});
 }
 
 // export를 수정하지 마세요.

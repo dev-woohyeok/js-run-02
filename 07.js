@@ -10,7 +10,7 @@
  *  email: string
  * }
  *
- * - 배열의 각 요소 중 20대인 사람만 고른 뒤 나이 순으로 정렬한 후, email만 뽑아서 배열로 반환하세요.
+ * - 배열의 각 요소 중 20대인 사람만 고른 뒤 // 나이 순으로 정렬한 후 //  email만 뽑아서 배열로 반환하세요.
  * - method 체이닝을 사용하세요.
  * - 원본 배열을 변경하지 말고 새로운 배열을 반환하세요.
  *
@@ -25,13 +25,10 @@
 
 // TODO: get20sEmail 함수를 작성하세요.
 function get20sEmail(arr) {
-    return arr.filter(obj => obj.age >= 20 && obj.age < 30)
-    .sort((a, b) => {
-        if(a.age < b.age) return -1;
-        if(b.age > b.age) return 1;
-        return 0; 
-    })
-    .map(obj => obj.email);
+	return arr
+		.filter((obj) => obj.age >= 20 && obj.age < 30)
+		.sort((a, b) => a.age - b.age)
+		.map((obj) => obj.email);
 }
 
 // export를 수정하지 마세요.
